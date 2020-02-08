@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
-from werkzeug import url_decode
+try:
+  from werkzeug import url_decode # for werkzeug v0.16.1 and earlier
+except ImportError:
+  from werkzeug.urls import url_decode # for werkzeug v1.0.0
 
 
 class Middleware(object):
